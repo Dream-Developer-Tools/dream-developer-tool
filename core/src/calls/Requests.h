@@ -2,9 +2,9 @@
 #define REQUESTS_H
 
 #include <cpr/cpr.h>
-#include "tarUtils.h"
+#include "TarUtils.h"
 
-
+namespace Requests {
 inline cpr::Response get(const std::string& url) {
     return cpr::Get(cpr::Url{url});
 }
@@ -34,7 +34,8 @@ inline void download(const std::string& url, const std::string& path) {
 
 inline void downloadTar(const std::string& url, const std::string& path) {
     cpr::Response r = get(url);
-    extractTar(r.text, path);
+    extractTarFromBuffer(r.text, path);
+}
 }
 
 #endif

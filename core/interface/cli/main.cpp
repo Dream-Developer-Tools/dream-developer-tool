@@ -1,22 +1,15 @@
 
 #include <iostream>
-#include <core.h>
+#include <Core.h>
 
-
+// ARGV[0] is the command name, ARGV[1] is the plugin name, and anything past that are the arguments for the plugin
 int main(int argc, char** argv) {
     argc--;
-    argv++;
     if (argc == 0) {
-        std::cout << "Usage: " << " <command> [args]" << std::endl;
+        std::cout << "Usage: " << " <command> [plugin-name] [args]" << std::endl;
         std::cout << "For a list of commands, run: " << " help" << std::endl;
         return 1;
     }
 
-
-    const std::string command = argv[0];
-    char** newArgv = argv + 1;
-
-
-
-    return runCommand(command, argc - 1, newArgv);
+    return runCoreCommand(argv[1], argc - 1, argv + 2, false).status;
 }

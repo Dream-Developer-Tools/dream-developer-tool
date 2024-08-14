@@ -1,0 +1,6 @@
+[submodule "libs/json"]
+	path = libs/json
+	url = git@github.com:open-source-parsers/jsoncpp.git
+[submodule "libs/cpr"]
+	path = libs/cpr
+	url = git@github.com:libcpr/cpr.git

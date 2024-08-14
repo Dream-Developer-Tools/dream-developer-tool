@@ -1,0 +1,19 @@
+{
+    "page": {
+        "home": {
+            "title": "Dream Developer Tool",
+            "contributors": "Contributors"
+        },
+        "about": {
+            "title": "About",
+            "nav": "About"
+        },
+        "contact": {
+            "title": "Contact",
+            "nav": "Contact Us"
+        },
+        "navbar": {
+            "title": "Dream Developer Tool"
+        }
+    }
+}

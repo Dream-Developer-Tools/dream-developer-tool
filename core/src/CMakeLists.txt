@@ -1,6 +1,15 @@
 
-add_library(${PROJECT_NAME} STATIC)
-target_sources(${PROJECT_NAME} PRIVATE core.cpp core.h)
+add_library(${PROJECT_NAME} STATIC
+        Core.cpp Core.h
+        calls/CoreCalls.h
+        plugin-manager/PluginManager.h
+        calls/Requests.h
+        calls/TarUtils.h
+        Helpers.h
+        calls/Requests.h
+        commands/CoreCommands.cpp
+        commands/CoreCommands.h
+)
 
 # PROJECT CODE
 target_include_directories(${PROJECT_NAME} PRIVATE
