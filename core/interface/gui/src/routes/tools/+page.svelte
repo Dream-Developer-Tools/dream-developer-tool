@@ -1,6 +1,6 @@
 <script>
     import Navbar from "$lib/components/Navbar.svelte";
-    import {navbarPosition} from "$lib/config.js";
+    import {navbarPosition} from "$lib/config";
 
 </script>
 

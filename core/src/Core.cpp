@@ -1,12 +1,9 @@
 #include "Core.h"
 
-#include <iostream>
 #include <map>
-#include <ostream>
 #include <Plugin.h>
 #include <whereami.h>
 #include <pluginLoader.h>
-#include <filesystem>
 #include "./plugin-manager/PluginManager.h"
 #include "./calls/CoreCalls.h"
 #include "Helpers.h"
@@ -110,17 +107,25 @@ std::vector<SPlugin> registerAllPlugins()
 }
 
 
+extern "C" void a(bool a) {
 
+    std::cout << "Flag: " << a << std::endl;
+}
 
-ReturnData runCoreCommand(std::string pluginCalled, int argc, char** argv, bool gui)
+extern "C" ReturnData runCoreCommand(std::string pluginCalled, uint8_t argc, char** argv, uint8_t gui)
 {
+
     guiMode = gui;
     if (pluginCalled == "core" || pluginCalled == "c")
     {
         std::string command = argv[0];
         if (command == "version" || command == "v")
         {
-            std::cout << "Version: " << VERSION << std::endl;
+            if (!guiMode)
+            {
+                createLog(INFO, "Version: " + std::string(VERSION));
+            }
+            return ReturnData{VERSION, SUCCESS};
         }
         else if (command == "list" || command == "l")
         {
